@@ -5,11 +5,16 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     SECRET_KEY = "this-is-a-super-secret-key"
+    DEBUG = True
+    
+class ProductionConfig(Config):
+    SECRET_KEY = "this-is-a-super-secret-key"
+    DEBUG= False
 
 config = {
     'development': DevelopmentConfig,
     'testing': DevelopmentConfig,
-    'production': DevelopmentConfig
+    'production': ProductionConfig,
 }
 
 ## Enter your Open API Key here
