@@ -12,10 +12,10 @@ def page_not_found(e):
   return render_template('404.html'), 404
 
 
-main = Flask(__name__)
-ckeditor = CKEditor(main)
+app = Flask(__name__)
+ckeditor = CKEditor(app)
 #main.config.from_object(config.config['development'])
-main.register_error_handler(404, page_not_found)
+app.register_error_handler(404, page_not_found)
 
 
 """@main.route('/', methods=["GET", "POST"])
@@ -29,7 +29,7 @@ def profile():
 
 
 
-@main.route('/', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def contentgenerator():
       
     if request.method == 'POST':
@@ -70,4 +70,4 @@ def contentgenerator():
 
 
 if __name__ == '__main__':
-    main.run(host='0.0.0.0', port='5000', debug=False)
+    app.run(host='0.0.0.0', port='5000', debug=False)
